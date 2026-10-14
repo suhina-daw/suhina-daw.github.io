@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Suhina</title>
+  <meta name="description" content="Suhina is an open-source, clip-launching DAW written in pure Rust.">
+  <meta property="og:title" content="Suhina">
+  <meta property="og:description" content="An open-source, clip-launching DAW written in pure Rust.">
+  <meta property="og:url" content="https://suhina-daw.github.io/">
+  <style>
+    :root {
+      --bg: #f6f5f2;
+      --fg: #1b1b1a;
+      --muted: #5d5b56;
+      --line: #dddad3;
+      --card: #ffffff;
+      --accent: #c2410c;
+      --accent-fg: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121211;
+        --fg: #ecebe7;
+        --muted: #a3a09a;
+        --line: #2c2b29;
+        --card: #1a1a19;
+        --accent: #f97316;
+        --accent-fg: #121211;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 760px; margin: 0 auto; padding: 56px 16px 72px; }
+    .logo { width: 100%; max-width: 420px; height: auto; display: block; }
+    h1 { font-size: 2.4rem; line-height: 1.15; margin: 32px 0 12px; letter-spacing: -0.02em; }
+    h2 { font-size: 1.15rem; margin: 48px 0 12px; }
+    p { margin: 0 0 14px; }
+    .lead { font-size: 1.2rem; color: var(--muted); }
+    .status {
+      display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+      text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px;
+      padding: 2px 10px; color: var(--muted);
+    }
+    .downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .downloads a {
+      display: block; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px;
+      background: var(--card); color: var(--fg); text-decoration: none;
+    }
+    .downloads a:hover { border-color: var(--accent); }
+    .downloads strong { display: block; }
+    .downloads span { font-size: 0.85rem; color: var(--muted); }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .links a {
+      padding: 8px 14px; border-radius: 8px; text-decoration: none; font-weight: 600;
+      border: 1px solid var(--line); color: var(--fg);
+    }
+    .links a.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+    ul { padding-left: 20px; margin: 0; }
+    li { margin-bottom: 6px; }
+    .note { font-size: 0.9rem; color: var(--muted); }
+    a { color: var(--accent); }
+    footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" alt="Suhina"
+      src="https://github.com/user-attachments/assets/7efa72b4-fba5-42f3-9503-0ea9f4e864f6">
+
+    <h1>A clip-launching DAW, open source and written in Rust.</h1>
+    <p class="lead">Launch clips, arrange them, and render the result, with plug-ins kept in a sandbox
+      so that one crashing plug-in never takes your project down.</p>
+    <p><span class="status">Pre-alpha</span></p>
+
+    <div class="links">
+      <a class="primary" href="#download">Download the nightly</a>
+      <a href="https://github.com/suhina-daw/suhina-daw">Source on GitHub</a>
+      <a href="https://discord.com/invite/e5JAZYMU">Discord</a>
+      <a href="https://loupystudio-software.itch.io/suhina">Itch.io</a>
+    </div>
+
+    <h2>What it does today</h2>
+    <ul>
+      <li>Session and arrangement views, with clips launched in time with the song.</li>
+      <li>Audio clips with real-time time-stretching, and MIDI through the built-in FM synth.</li>
+      <li>CLAP and VST3 plug-ins, each running in its own process.</li>
+      <li>A browser with a sample map that lays out sounds by how they sound.</li>
+      <li>Every action available from the command line and over MCP, for scripts and agents.</li>
+    </ul>
+    <p class="note">The <a href="https://github.com/suhina-daw/suhina-daw/blob/main/ROADMAP.md">roadmap</a>
+      lists what works and what comes next.</p>
+
+    <h2 id="download">Download</h2>
+    <p>The nightly is built from the latest code every night. It is a development build: expect rough
+      edges, and keep backups of projects you care about.</p>
+    <div class="downloads">
+      <a href="https://github.com/suhina-daw/suhina-daw/releases/download/nightly/suhina-nightly-windows-x86_64.zip">
+        <strong>Windows</strong><span>x86-64, .zip</span></a>
+      <a href="https://github.com/suhina-daw/suhina-daw/releases/download/nightly/suhina-nightly-macos-universal.tar.gz">
+        <strong>macOS</strong><span>Apple silicon and Intel, macOS 11+</span></a>
+      <a href="https://github.com/suhina-daw/suhina-daw/releases/download/nightly/suhina-nightly-linux-x86_64.tar.gz">
+        <strong>Linux</strong><span>x86-64, needs libasound2</span></a>
+    </div>
+    <p class="note">The builds are not signed yet, so Windows SmartScreen and macOS Gatekeeper warn
+      about them. All releases are on the
+      <a href="https://github.com/suhina-daw/suhina-daw/releases">releases page</a>.</p>
+
+    <h2>Get involved</h2>
+    <p>Suhina is GPL-3.0 and welcomes contributions: fork the repository and open a pull request.
+      <a href="https://github.com/suhina-daw/suhina-daw/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>
+      explains how to pick up an issue, and the Discord is the place to ask questions.</p>
+
+    <footer>
+      Suhina is free software under the GNU General Public License v3.0 or later.
+      Product names mentioned elsewhere are trademarks of their owners.
+    </footer>
+  </main>
+</body>
+</html>
